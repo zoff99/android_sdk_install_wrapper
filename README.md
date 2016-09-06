@@ -1,2 +1,3 @@
-# android_sdk_install_wrapper
-Wrapper for "android sdk" script installer
+# Wrapper for "android sdk" script installer
+
+$ANDROID_SDK must be set for this script to work!
