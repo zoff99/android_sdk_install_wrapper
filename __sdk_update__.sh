@@ -24,10 +24,15 @@ rm -f "$tmpfile"
 function sdk_update_function()
 {
         echo y | android update sdk --no-ui --all --filter "$1" > "$tmpfile" 2>&1
-        cat "$tmpfile"
+        # ----- less output -----
+        # cat "$tmpfile"
+        # ----- less output -----
         cat "$tmpfile" | grep -i 'package installed' > /dev/null 2>&1
         ret_code=$?
         rm -f "$tmpfile"
+        if [ $ret_code -ne 0 ]; then
+                echo "* Error installing $1 *"
+        fi
         return $ret_code
 }
 
